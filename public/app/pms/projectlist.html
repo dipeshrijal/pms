@@ -1,0 +1,12 @@
+<h2>Project list</h2>
+
+	<pre>
+		<% project | json %>
+	</pre>
+
+<form>
+	<input type="text" ng-model="project.name">
+	<%project.name%>
+	<button ng-click="createProject(project)">Submit</button>
+
+</form>
