@@ -1,13 +1,11 @@
 /**
  *   Starting point for rentex client app.
  */
-angular.module('pms', ['ngRoute']);
-
-
+var app = angular.module('pms', ['ngRoute']);
 /**
  *  Application level configuration.
  */
-angular.module('pms').config(['$interpolateProvider', '$routeProvider',
+app.config(['$interpolateProvider', '$routeProvider',
     function($interpolateProvider, $routeProvider) {
 
         // Change the default expression layout style.
@@ -26,18 +24,16 @@ angular.module('pms').config(['$interpolateProvider', '$routeProvider',
 ]);
 
 
-
-
 /**
  *  Application Level controller.
  */
-angular.module('pms').controller('appCtrl', ['$scope',
+app.controller('appCtrl', ['$scope',
     function($scope) {
 
     }
 ]);
 
-angular.module('pms').controller('ProjectListController', ['$scope','$http',
+app.controller('ProjectListController', ['$scope','$http',
     function($scope,$http) {
 
         $scope.createProject = function(project) {
@@ -49,7 +45,7 @@ angular.module('pms').controller('ProjectListController', ['$scope','$http',
                 project: project,
 
             }).success(function(data, status, headers, config) {
-                debugger;
+                project.name = '';
             });
         };
     }

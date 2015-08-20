@@ -3,6 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Pms;
+
 use Illuminate\Http\Request;
 
 class PmsController extends Controller {
@@ -24,7 +26,7 @@ class PmsController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('pms.create');
 	}
 
 	/**
@@ -34,7 +36,11 @@ class PmsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		return $request->input('project');
+		$pms = new Pms;
+
+		$pms->name = $request->input('project.name');
+
+		$pms->save();
 	}
 
 	/**
