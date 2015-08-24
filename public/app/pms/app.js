@@ -14,9 +14,13 @@ app.config(['$interpolateProvider', '$routeProvider',
 
 
         $routeProvider.
-        when('/list', {
+        when('/create', {
+            templateUrl: 'app/pms/projectcreate.html',
+            controller: 'ProjectCreateController'
+        })
+        .when('/list', {
             templateUrl: 'app/pms/projectlist.html',
-            controller: 'ProjectListController'
+            controller: 'ProjectCreateController'
         });
 
 
@@ -33,7 +37,7 @@ app.controller('appCtrl', ['$scope',
     }
 ]);
 
-app.controller('ProjectListController', ['$scope','$http',
+app.controller('ProjectCreateController', ['$scope','$http',
     function($scope,$http) {
 
         $scope.createProject = function(project) {
@@ -46,6 +50,19 @@ app.controller('ProjectListController', ['$scope','$http',
 
             }).success(function(data, status, headers, config) {
                 project.name = '';
+                project.category = '';
+            });
+        };
+
+        $scope.getProject = function (project) {
+
+            var url = '/listProject'
+
+            $http.get(url, {
+                project : project,
+            }).success(function (data, status, headers, config ) {
+                $scope.name = data.name;
+                $scope.status = data.status;
             });
         };
     }

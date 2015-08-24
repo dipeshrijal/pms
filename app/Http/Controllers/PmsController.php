@@ -40,6 +40,8 @@ class PmsController extends Controller {
 
 		$pms->name = $request->input('project.name');
 
+		$pms->status = $request->input('project.category');
+
 		$pms->save();
 	}
 
@@ -85,6 +87,11 @@ class PmsController extends Controller {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function listProject()
+	{
+		return Pms::all();
 	}
 
 }

@@ -10,3 +10,5 @@ Route::controllers([
 ]);
 
 resource('pms', 'PmsController');
+
+get('/listProject', 'PmsController@listProject');

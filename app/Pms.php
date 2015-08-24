@@ -6,7 +6,7 @@ class Pms extends Model {
 
 	protected $table = 'project';
 
-	protected $fillable = ['name'];
+	protected $fillable = ['name', 'status'];
 
 	public $timestamps = false;
 
