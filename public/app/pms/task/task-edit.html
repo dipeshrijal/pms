@@ -1,0 +1,14 @@
+<h2>Create Task</h2>
+
+
+<pre>{{ task | json  }}</pre>
+<form>
+
+	<label for="name">Name</label><input type="text" ng-model="task.name"> <br>
+
+	<label for="category">Description</label><input type="text" ng-model="task.description"> <br>
+
+	<button ng-click="createTask(task)">Submit</button>
+
+
+</form>

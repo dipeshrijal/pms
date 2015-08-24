@@ -1,0 +1,11 @@
+<h2>Project list</h2>
+
+<ul>
+<li ng-repeat="project in tasks">
+
+    Project Name: {{ project.name}}  And
+    Project description : {{ project.description}} <a href="#/task-edit/{{ project.id }}">Edit</a>
+
+
+</li>
+</ul>

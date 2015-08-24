@@ -57,7 +57,7 @@ return [
 			'host'      => 'localhost',
 			'database'  => 'test',
 			'username'  => 'root',
-			'password'  => 'dipesh',
+			'password'  => 'root',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -3,11 +3,9 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use App\Pms;
-
 use Illuminate\Http\Request;
-
-class PmsController extends Controller {
+use App\Task;
+class TasksController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,18 +14,9 @@ class PmsController extends Controller {
 	 */
 	public function index()
 	{
-		return view('pms.index');
+		return Task::all();
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		return view('pms.create');
-	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -36,18 +25,8 @@ class PmsController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-
-		// $data = $request->input('data');
-
-		// dd($data);
-
-		$pms = new Pms;
-
-		$pms->name = $request->input('data.name');
-
-		$pms->description = $request->input('data.description');
-
-		$pms->save();
+		Task::create($request->input('task'));
+		return ;
 	}
 
 	/**
@@ -58,7 +37,7 @@ class PmsController extends Controller {
 	 */
 	public function show($id)
 	{
-
+		return Task::find($id);
 	}
 
 	/**
@@ -69,7 +48,7 @@ class PmsController extends Controller {
 	 */
 	public function edit($id)
 	{
-		return Pms::find($id);
+		//
 	}
 
 	/**
@@ -80,8 +59,9 @@ class PmsController extends Controller {
 	 */
 	public function update($id , Request $request)
 	{
-		Pms::find($id)->update($request->input('data'));
-		return;
+		Task::find($id)->update($request->input('data'));
+
+		return ;
 	}
 
 	/**
@@ -93,11 +73,6 @@ class PmsController extends Controller {
 	public function destroy($id)
 	{
 		//
-	}
-
-	public function listProject()
-	{
-		return Pms::all();
 	}
 
 }
